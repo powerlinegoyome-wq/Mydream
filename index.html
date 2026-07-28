@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER OF ARMS — Graphic Apparel Portfolio</title>
+<meta name="description" content="Heritage & mythology streetwear graphic design portfolio — prepared for Amazon Merch on Demand review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0b0a08;
+    --void-2:#131210;
+    --bone:#e9e2ce;
+    --bone-dim:#b8b096;
+    --brass:#a9863f;
+    --brass-bright:#d3ab5c;
+    --ember:#8c1f1f;
+    --ash:#55524a;
+    --line: rgba(233,226,206,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--void);
+    color:var(--bone);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--brass); color:var(--void); }
+
+  h1,h2,h3,.display{
+    font-family:'Cinzel', serif;
+    letter-spacing:0.04em;
+    font-weight:600;
+    color:var(--bone);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    color:var(--brass-bright);
+  }
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+
+  /* texture backdrop */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(ellipse at 20% -10%, rgba(169,134,63,0.10), transparent 55%),
+      radial-gradient(ellipse at 90% 10%, rgba(140,31,31,0.08), transparent 50%);
+    pointer-events:none;
+    z-index:0;
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events:none;
+    z-index:1;
+    mix-blend-mode:overlay;
+  }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:2;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    background:linear-gradient(to bottom, rgba(11,10,8,0.92), transparent);
+    backdrop-filter:blur(2px);
+  }
+  .brandmark{ display:flex; align-items:center; gap:10px; font-family:'Cinzel Decorative'; font-weight:700; font-size:1.05rem; letter-spacing:0.05em;}
+  .brandmark .sigil{ width:22px; height:22px; border:1.5px solid var(--brass); transform:rotate(45deg); position:relative; }
+  .brandmark .sigil::after{content:"";position:absolute; inset:4px; border:1px solid var(--brass);}
+  nav.links{ display:flex; gap:36px; font-family:'JetBrains Mono'; font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;}
+  nav.links a{ opacity:0.75; text-decoration:none; transition:opacity .25s, color .25s; border-bottom:1px solid transparent;}
+  nav.links a:hover{ opacity:1; color:var(--brass-bright); border-color:var(--brass-bright);}
+  @media (max-width:760px){ nav.links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+    padding-top:120px; padding-bottom:80px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-arches{
+    position:absolute; inset:0; z-index:0; opacity:0.5;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 118px, rgba(233,226,206,0.035) 118px 120px),
+      radial-gradient(ellipse 60% 90% at 50% -20%, rgba(169,134,63,0.14), transparent 70%);
+  }
+  .hero-content{ position:relative; z-index:2; }
+  .hero .eyebrow{ display:block; margin-bottom:26px; }
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.4rem);
+    line-height:0.98;
+    max-width:920px;
+    font-weight:600;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--brass-bright);
+    display:block;
+  }
+  .hero .sub{
+    margin-top:30px;
+    max-width:560px;
+    font-size:1.18rem;
+    color:var(--bone-dim);
+    font-style:italic;
+  }
+  .hero .meta-row{
+    display:flex; gap:48px; margin-top:64px; flex-wrap:wrap;
+  }
+  .meta-item .num{ font-family:'Cinzel'; font-size:2.1rem; color:var(--brass-bright); }
+  .meta-item .lbl{ font-family:'JetBrains Mono'; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bone-dim); margin-top:4px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding:120px 0; position:relative; z-index:2; border-bottom:1px solid var(--line);}
+  .section-head{ margin-bottom:64px; max-width:680px; }
+  .section-head .eyebrow{ margin-bottom:16px; }
+  .section-head h2{ font-size:clamp(1.8rem,3.4vw,2.6rem); }
+  .section-head p{ margin-top:18px; color:var(--bone-dim); font-size:1.08rem; }
+
+  /* ---------- CHRONICLE TIMELINE (signature element) ---------- */
+  .chronicle{ position:relative; }
+  .chronicle-line{
+    position:absolute; left:96px; top:0; bottom:0; width:1px;
+    background:linear-gradient(to bottom, transparent, var(--brass) 6%, var(--brass) 94%, transparent);
+  }
+  @media (max-width:700px){ .chronicle-line{left:34px;} }
+
+  .era{
+    position:relative;
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:0 40px;
+    padding:44px 0;
+  }
+  @media (max-width:700px){ .era{ grid-template-columns:34px 1fr; gap:0 22px;} }
+
+  .era-year{
+    font-family:'JetBrains Mono';
+    font-size:0.85rem;
+    color:var(--brass-bright);
+    text-align:right;
+    padding-top:6px;
+    white-space:nowrap;
+  }
+  @media (max-width:700px){ .era-year{ text-align:left; font-size:0.68rem; } }
+
+  .era-seal{
+    position:absolute; left:96px; top:50px; transform:translateX(-50%);
+    width:15px; height:15px; border-radius:50%;
+    background:var(--void);
+    border:2px solid var(--brass);
+    box-shadow:0 0 0 4px var(--void);
+  }
+  @media (max-width:700px){ .era-seal{ left:34px; width:11px; height:11px;} }
+
+  .era-card{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:30px;
+    align-items:start;
+    border:1px solid var(--line);
+    background:rgba(233,226,206,0.02);
+    padding:24px;
+    transition:border-color .3s, background .3s;
+  }
+  .era-card:hover{ border-color:var(--brass); background:rgba(169,134,63,0.05); }
+  @media (max-width:640px){ .era-card{ grid-template-columns:1fr; } }
+
+  .era-thumb{ overflow:hidden; border:1px solid var(--line); background:#000; cursor:pointer;}
+  .era-thumb img{ width:100%; height:auto; display:block; transition:transform .5s ease;}
+  .era-thumb:hover img{ transform:scale(1.05); }
+
+  .era-body .brand{ font-family:'Cinzel'; font-size:1.3rem; color:var(--bone); }
+  .era-body .tagline{ font-style:italic; color:var(--brass-bright); font-size:0.98rem; margin-top:4px;}
+  .era-body .desc{ margin-top:12px; color:var(--bone-dim); font-size:0.98rem; max-width:520px;}
+  .era-body .tags{ margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    font-family:'JetBrains Mono'; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;
+    border:1px solid var(--ash); color:var(--bone-dim); padding:4px 9px;
+  }
+
+  /* ---------- GALLERY GRID ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .gallery-grid{ grid-template-columns:1fr;} }
+
+  .gallery-item{
+    background:var(--void); position:relative; overflow:hidden; cursor:pointer;
+    aspect-ratio:3/4;
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; object-position:top;
+    transition:transform .6s ease, filter .6s ease;
+    filter:grayscale(0.15) brightness(0.92);
+  }
+  .gallery-item:hover img{ transform:scale(1.06); filter:grayscale(0) brightness(1); }
+  .gallery-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:18px 20px;
+    background:linear-gradient(to top, rgba(11,10,8,0.95), transparent);
+    opacity:0; transform:translateY(8px);
+    transition:opacity .35s, transform .35s;
+  }
+  .gallery-item:hover .gallery-caption{ opacity:1; transform:translateY(0); }
+  .gallery-caption .brand{ font-family:'Cinzel'; font-size:1.05rem;}
+  .gallery-caption .meta{ font-family:'JetBrains Mono'; font-size:0.65rem; color:var(--brass-bright); letter-spacing:0.08em; margin-top:3px;}
+
+  /* ---------- SKILLS / SPECS ---------- */
+  .specs-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  @media (max-width:800px){ .specs-grid{ grid-template-columns:1fr;} }
+  .spec-cell{ background:var(--void-2); padding:34px 30px;}
+  .spec-cell .n{ font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--brass-bright); letter-spacing:0.14em;}
+  .spec-cell h3{ margin-top:12px; font-size:1.15rem; }
+  .spec-cell p{ margin-top:10px; color:var(--bone-dim); font-size:0.95rem; }
+
+  .capability-list{ margin-top:20px; }
+  .capability-list li{ list-style:none; display:flex; gap:12px; padding:14px 0; border-bottom:1px solid var(--line); font-size:1rem; color:var(--bone-dim);}
+  .capability-list li::before{ content:"⁜"; color:var(--brass); flex-shrink:0; }
+  .capability-list li b{ color:var(--bone); font-weight:600;}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{ padding:110px 0 60px; text-align:center; position:relative; z-index:2;}
+  footer .eyebrow{ justify-content:center; display:flex; margin-bottom:22px;}
+  footer h2{ font-size:clamp(2rem,4.4vw,3.2rem); max-width:760px; margin:0 auto; line-height:1.15;}
+  footer .contact-row{ margin-top:44px; display:flex; justify-content:center; gap:40px; flex-wrap:wrap; font-family:'JetBrains Mono'; font-size:0.85rem;}
+  footer .contact-row a{ text-decoration:none; border-bottom:1px solid var(--brass); padding-bottom:2px; transition:color .25s, border-color .25s;}
+  footer .contact-row a:hover{ color:var(--brass-bright); }
+  footer .fine{ margin-top:70px; color:var(--ash); font-family:'JetBrains Mono'; font-size:0.7rem; letter-spacing:0.1em;}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(6,5,4,0.94);
+    display:none; align-items:center; justify-content:center;
+    padding:40px;
+  }
+  .lightbox.active{ display:flex; }
+  .lightbox img{ max-height:90vh; max-width:90vw; border:1px solid var(--brass); }
+  .lightbox-close{
+    position:absolute; top:28px; right:36px; font-family:'JetBrains Mono';
+    color:var(--bone); font-size:0.85rem; letter-spacing:0.1em; cursor:pointer; text-transform:uppercase;
+    border:1px solid var(--line); padding:8px 16px; transition:border-color .25s, color .25s;
+  }
+  .lightbox-close:hover{ border-color:var(--brass); color:var(--brass-bright); }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .gallery-item img, .era-thumb img{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brandmark"><span class="sigil"></span>ATELIER OF ARMS</div>
+  <nav class="links">
+    <a href="#chronicle">Chronicle</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-arches"></div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Graphic Design Portfolio — Amazon Merch on Demand</span>
+    <h1>Heritage, myth, and<br><em>steel, rendered as apparel.</em></h1>
+    <p class="sub">Ten founding houses — from Sparta, 480 BC to a modern kitsune legacy — each built as a complete graphic identity: crest, back print, and origin story. Prepared for print‑on‑demand review.</p>
+    <div class="meta-row">
+      <div class="meta-item"><div class="num">10</div><div class="lbl">Complete Designs</div></div>
+      <div class="meta-item"><div class="num">6</div><div class="lbl">Cultural Lineages</div></div>
+      <div class="meta-item"><div class="num">2530</div><div class="lbl">Years Spanned</div></div>
+      <div class="meta-item"><div class="num">2</div><div class="lbl">Print Placements Each</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHRONICLE (signature timeline) ================= -->
+<section class="section chronicle" id="chronicle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 — The Chronicle</span>
+      <h2>Every house has a founding year.</h2>
+      <p>Each design is built as a fictional heritage brand with its own "Est." date — a real thread that lets the whole catalogue sit on one timeline, from classical antiquity to the present.</p>
+    </div>
+
+    <div style="position:relative;">
+      <div class="chronicle-line"></div>
+
+      <!-- 480 BC -->
+      <div class="era reveal">
+        <div class="era-year">480 BC</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/spartan-might.jpg"><img src="assets/spartan-might.jpg" alt="Honor: Spartan Might t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">HONOR — Spartan Might</div>
+            <div class="tagline">"Come and Take Them" (Molon Labe)</div>
+            <div class="desc">A Thermopylae-coded crest built around the lambda shield — front chest hit plus a full illustrated back graphic of an armored Spartan with spear and shield.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Illustrative</span><span class="tag">Greek / Classical</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 950 AD -->
+      <div class="era reveal">
+        <div class="era-year">950 AD</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/valkyries-call.jpg"><img src="assets/valkyries-call.jpg" alt="Valkyrie's Call t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Valkyrie's Call</div>
+            <div class="tagline">"Victory or Valhalla"</div>
+            <div class="desc">Norse raider identity — Mjölnir chest mark, rune-bordered back panel, and a full-color axe-wielding warrior rendered in an ink-splash palette.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Full Color</span><span class="tag">Norse</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1099 AD x2 -->
+      <div class="era reveal">
+        <div class="era-year">1099 AD</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/deus-vult.jpg"><img src="assets/deus-vult.jpg" alt="Deus Vult t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Deus Vult</div>
+            <div class="tagline">"Vincit Qui Se Vincit"</div>
+            <div class="desc">Crusader-order branding: a heraldic shield chest mark and a kneeling knight back print with banner and heraldry, in a restrained two-tone ink style.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Line Art</span><span class="tag">Medieval</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era reveal">
+        <div class="era-year">1099 AD</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/anatolian-heritage.jpg"><img src="assets/anatolian-heritage.jpg" alt="Anatolian Heritage t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Anatolian Heritage</div>
+            <div class="tagline">The Anatolian Wild Goat</div>
+            <div class="desc">A kilim-bordered back panel built from traditional Anatolian motifs surrounding an illustrated wild goat, paired with a simple chest crest.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Pattern Work</span><span class="tag">Anatolian</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1603 -->
+      <div class="era reveal">
+        <div class="era-year">1603 AD</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/bushido-way.jpg"><img src="assets/bushido-way.jpg" alt="Bushido Way t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Bushido Way</div>
+            <div class="tagline">"Wisdom in Strength"</div>
+            <div class="desc">Edo-period samurai identity — a masked warrior back illustration in a limited color-block palette, with kanji lockup and chest emblem.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Color Block</span><span class="tag">Japanese</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2018 x2 -->
+      <div class="era reveal">
+        <div class="era-year">2018</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/nomadica-stepe.jpg"><img src="assets/nomadica-stepe.jpg" alt="Nomadica Stepe Heritage t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Nomadica — Stepe Heritage</div>
+            <div class="tagline">"Wild and Untamed Spirit"</div>
+            <div class="desc">A mounted archer rendered in duotone blue on black, framed by a bordered back panel — a modern take on Central Asian steppe iconography.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Duotone</span><span class="tag">Turkic / Steppe</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era reveal">
+        <div class="era-year">2018</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/miras-anatolian.jpg"><img src="assets/miras-anatolian.jpg" alt="Miras Anatolian Spirit t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Miras — Anatolian Spirit</div>
+            <div class="tagline">Natura Artis Magistra</div>
+            <div class="desc">A naturalist back plate — an Anatolian lizard framed in a hand-drawn ornamental border, built as a companion piece to the Heritage line.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Ornamental Border</span><span class="tag">Anatolian</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="era reveal">
+        <div class="era-year">2021</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/dragon-temple.jpg"><img src="assets/dragon-temple.jpg" alt="Dragon Temple Heritage t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Dragon Temple Heritage — Shoryu</div>
+            <div class="tagline">"The Dragon Rises; The Heavens Open"</div>
+            <div class="desc">A tattoo-flash-inspired dragon rendered in high-contrast black and white, laid over a mixed kanji/English poster composition.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">B&W Ink</span><span class="tag">Japanese</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="era reveal">
+        <div class="era-year">2023</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/honor-koi.jpg"><img src="assets/honor-koi.jpg" alt="Honor the Koi t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Honor the Koi</div>
+            <div class="tagline">Strength. Integrity. Perseverance.</div>
+            <div class="desc">Two facing koi in a yin-yang composition anchor a back panel framed by a traditional wave border, with two dueling samurai below.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Symmetry</span><span class="tag">Japanese</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Undated -->
+      <div class="era reveal">
+        <div class="era-year">Present</div>
+        <div class="era-seal"></div>
+        <div class="era-card">
+          <div class="era-thumb" data-full="assets/kitsune.jpg"><img src="assets/kitsune.jpg" alt="Kitsune - The Nine Tails' Ascension t-shirt design" loading="lazy"></div>
+          <div class="era-body">
+            <div class="brand">Kitsune — The Nine Tails' Ascension</div>
+            <div class="tagline">"Legends. Embodied."</div>
+            <div class="desc">A copy-driven back print built around an armored nine-tailed fox spirit, paired with a full lore passage — the catalogue's most editorial layout.</div>
+            <div class="tags"><span class="tag">Front + Back</span><span class="tag">Typographic</span><span class="tag">Japanese Folklore</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">02 — The Gallery</span>
+      <h2>Full catalogue.</h2>
+      <p>Every mockup as submitted: front chest placement, full back graphic, and neck label detail. Click any tile to view full size.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-full="assets/spartan-might.jpg">
+        <img src="assets/spartan-might.jpg" alt="Honor: Spartan Might" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Honor: Spartan Might</div><div class="meta">EST. 480 BC</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/valkyries-call.jpg">
+        <img src="assets/valkyries-call.jpg" alt="Valkyrie's Call" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Valkyrie's Call</div><div class="meta">EST. 950 AD</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/deus-vult.jpg">
+        <img src="assets/deus-vult.jpg" alt="Deus Vult" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Deus Vult</div><div class="meta">EST. 1099</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/anatolian-heritage.jpg">
+        <img src="assets/anatolian-heritage.jpg" alt="Anatolian Heritage" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Anatolian Heritage</div><div class="meta">EST. 1099</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/bushido-way.jpg">
+        <img src="assets/bushido-way.jpg" alt="Bushido Way" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Bushido Way</div><div class="meta">EST. 1603</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/nomadica-stepe.jpg">
+        <img src="assets/nomadica-stepe.jpg" alt="Nomadica Stepe Heritage" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Nomadica</div><div class="meta">EST. 2018</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/miras-anatolian.jpg">
+        <img src="assets/miras-anatolian.jpg" alt="Miras Anatolian Spirit" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Miras Anatolian Spirit</div><div class="meta">EST. 2018</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/dragon-temple.jpg">
+        <img src="assets/dragon-temple.jpg" alt="Dragon Temple Heritage" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Dragon Temple Heritage</div><div class="meta">EST. 2021</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/honor-koi.jpg">
+        <img src="assets/honor-koi.jpg" alt="Honor the Koi" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Honor the Koi</div><div class="meta">EST. 2023</div></div>
+      </div>
+      <div class="gallery-item" data-full="assets/kitsune.jpg">
+        <img src="assets/kitsune.jpg" alt="Kitsune" loading="lazy">
+        <div class="gallery-caption"><div class="brand">Kitsune</div><div class="meta">Nine Tails</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section class="section" id="capabilities">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">03 — Capabilities</span>
+      <h2>What each submission includes.</h2>
+    </div>
+
+    <div class="specs-grid reveal">
+      <div class="spec-cell">
+        <div class="n">01</div>
+        <h3>Dual Placement</h3>
+        <p>Every design ships with a small front chest mark and a full illustrated back graphic — the two placements Merch on Demand buyers expect from a heritage tee.</p>
+      </div>
+      <div class="spec-cell">
+        <div class="n">02</div>
+        <h3>Original Brand Systems</h3>
+        <p>Each piece is a self-contained identity: wordmark, tagline, founding date, and a repeatable crest — not a one-off graphic.</p>
+      </div>
+      <div class="spec-cell">
+        <div class="n">03</div>
+        <h3>Print-Ready Files</h3>
+        <p>Transparent PNG artwork at print resolution, separated from mockup backgrounds, ready for upload against Amazon's placement templates.</p>
+      </div>
+    </div>
+
+    <ul class="capability-list reveal">
+      <li><b>Research-grounded motifs</b> — kilim borders, rune alphabets, kanji lockups, and heraldry are used with attention to the source culture, not generic "tribal" filler.</li>
+      <li><b>Cross-niche range</b> — Anatolian folk art, Norse, Greco-Roman, and multiple distinct Japanese sub-niches (samurai, kitsune, koi, dragon) in one portfolio.</li>
+      <li><b>Consistent production system</b> — a shared front/back/label structure across every design, so a buyer recognizes the "house style" across the catalogue.</li>
+      <li><b>Mockup presentation</b> — each design is shown in a themed environment (gothic ruin, Spartan camp) suited to its lineage, for clean marketplace thumbnails.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <span class="eyebrow">04 — Get In Touch</span>
+    <h2>Ready for Amazon Merch on Demand review.</h2>
+    <div class="contact-row">
+      <a href="mailto:hello@example.com">hello@example.com</a>
+      <a href="#gallery">View Full Gallery ↑</a>
+    </div>
+    <div class="fine">ATELIER OF ARMS — HERITAGE GRAPHIC DESIGN — PORTFOLIO PREPARED 2026</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">Close ✕</div>
+  <img id="lightboxImg" src="" alt="Full size design view">
+</div>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('[data-full]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      lightboxImg.src = el.getAttribute('data-full');
+      lightbox.classList.add('active');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', ()=> lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('active'); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') lightbox.classList.remove('active'); });
+</script>
+
+</body>
+</html>
